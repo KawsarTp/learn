@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 23, 2021 at 11:28 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Host: localhost
+-- Generation Time: Apr 04, 2021 at 03:22 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laramin_3`
+-- Database: `onlyfans`
 --
 
 -- --------------------------------------------------------
@@ -81,7 +81,30 @@ INSERT INTO `admin_notifications` (`id`, `user_id`, `title`, `read_status`, `cli
 (11, 8, 'New withdraw request from username', 0, 'http://localhost/admin/laramin_3_8/laramin_3/admin/withdraw/details/14', '2021-03-15 23:39:55', '2021-03-15 23:39:55'),
 (12, 14, 'New member registered', 0, 'https://localhost/admin/laramin_3_8/laramin_3/admin/user/detail/14', '2021-03-16 07:18:09', '2021-03-16 07:18:09'),
 (13, 15, 'New member registered', 1, 'https://localhost/admin/laramin_3_8/laramin_3/admin/user/detail/15', '2021-03-16 07:19:25', '2021-03-20 01:07:12'),
-(14, 16, 'New member registered', 0, 'https://localhost/admin/laramin_3_8/laramin_3/admin/user/detail/16', '2021-03-16 07:20:49', '2021-03-16 07:20:49');
+(14, 16, 'New member registered', 0, 'https://localhost/admin/laramin_3_8/laramin_3/admin/user/detail/16', '2021-03-16 07:20:49', '2021-03-16 07:20:49'),
+(15, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:12:57', '2021-04-03 04:12:57'),
+(16, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:18:22', '2021-04-03 04:18:22'),
+(17, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:19:27', '2021-04-03 04:19:27'),
+(18, 2, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/2', '2021-04-03 04:21:17', '2021-04-03 04:21:17'),
+(19, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:22:04', '2021-04-03 04:22:04'),
+(20, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:25:00', '2021-04-03 04:25:00'),
+(21, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:31:07', '2021-04-03 04:31:07'),
+(22, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:32:09', '2021-04-03 04:32:09'),
+(23, 3, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/3', '2021-04-03 04:33:49', '2021-04-03 04:33:49'),
+(24, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:38:21', '2021-04-03 04:38:21'),
+(25, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:39:14', '2021-04-03 04:39:14'),
+(26, 2, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/2', '2021-04-03 04:42:46', '2021-04-03 04:42:46'),
+(27, 3, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/3', '2021-04-03 04:46:14', '2021-04-03 04:46:14'),
+(28, 4, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/4', '2021-04-03 04:47:44', '2021-04-03 04:47:44'),
+(29, 5, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/5', '2021-04-03 04:50:54', '2021-04-03 04:50:54'),
+(30, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:52:00', '2021-04-03 04:52:00'),
+(31, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:54:52', '2021-04-03 04:54:52'),
+(32, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-03 04:55:37', '2021-04-03 04:55:37'),
+(33, 5, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/5', '2021-04-03 23:48:01', '2021-04-03 23:48:01'),
+(34, 6, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/6', '2021-04-04 00:20:07', '2021-04-04 00:20:07'),
+(35, 1, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/1', '2021-04-04 00:21:07', '2021-04-04 00:21:07'),
+(36, 2, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/2', '2021-04-04 00:30:45', '2021-04-04 00:30:45'),
+(37, 3, 'New Creator registered', 0, 'http://localhost/kawsar/onlyfans/admin/creator/details/3', '2021-04-04 01:04:27', '2021-04-04 01:04:27');
 
 -- --------------------------------------------------------
 
@@ -114,6 +137,134 @@ INSERT INTO `admin_password_resets` (`id`, `email`, `token`, `status`, `created_
 (9, 'admin@site.com', '606926', 1, '2020-06-17 04:05:19', NULL),
 (10, 'admin@site.com', '811540', 1, '2020-07-08 03:28:19', NULL),
 (11, 'admin@site.com', '275965', 0, '2021-01-02 19:36:26', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `collectives`
+--
+
+CREATE TABLE `collectives` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `content_creator_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` decimal(28,8) NOT NULL,
+  `interval` int(11) NOT NULL COMMENT '1= on time payment , 1= Monthly Payment ,  3 = Yearly Payments',
+  `goal` decimal(28,8) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `collectives`
+--
+
+INSERT INTO `collectives` (`id`, `content_creator_id`, `name`, `description`, `amount`, `interval`, `goal`, `created_at`, `updated_at`) VALUES
+(1, 3, 'radio', 'asdasdasd', '0.00000000', 1, '200.00000000', '2021-04-04 01:34:28', '2021-04-04 01:34:28'),
+(2, 3, 'asas', 'asasas', '0.00000000', 3, '2000.00000000', '2021-04-04 01:34:44', '2021-04-04 01:34:44'),
+(3, 3, 'radio', 'asdsdsd', '20.00000000', 1, '200.00000000', '2021-04-04 02:35:27', '2021-04-04 02:35:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `details` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment_reactions`
+--
+
+CREATE TABLE `comment_reactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `comment_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `content_creators`
+--
+
+CREATE TABLE `content_creators` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `first_name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `balance` decimal(28,8) NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_type` tinyint(11) NOT NULL,
+  `payment_type` tinyint(4) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL COMMENT '0:banned, 1:active',
+  `ev` tinyint(1) NOT NULL COMMENT '0:email unverified, 1:email verified',
+  `sv` tinyint(1) NOT NULL COMMENT '0:sms unverified, 1:sms verified',
+  `ver_code` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'store verification code',
+  `ver_code_send_at` datetime NOT NULL COMMENT 'store verification code',
+  `ts` tinyint(1) NOT NULL COMMENT '0:2fa off, 1: 2fa on',
+  `tv` tinyint(1) NOT NULL COMMENT '0:2fa off, 1: 2fa on',
+  `tsc` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `content_creators`
+--
+
+INSERT INTO `content_creators` (`id`, `first_name`, `last_name`, `username`, `email`, `mobile`, `balance`, `password`, `image`, `address`, `user_type`, `payment_type`, `status`, `ev`, `sv`, `ver_code`, `ver_code_send_at`, `ts`, `tv`, `tsc`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Jaden', 'Matthew', 'username', 'zinu@mailinator.com', '93+18413259429', '0.00000000', '$2y$10$JX6AMxmYYC8GMfeXG9egqOzKWMF/lT5iwMKguYDd2z8P4vEabdlLW', NULL, '{\"address\":\"\",\"state\":\"\",\"zip\":\"\",\"country\":\"Afghanistan\",\"city\":\"\"}', 1, 2, 1, 0, 1, '', '0000-00-00 00:00:00', 0, 1, '', NULL, '2021-04-04 00:21:07', '2021-04-04 00:21:07'),
+(2, 'Kaseem', 'Giacomo', 'perry321', 'fetodi@mailinator.com', '9312768316222', '0.00000000', '$2y$10$Efb1OvM2hIS0ndhEIX6sMu/qnmG/RDvpnFf5BJ/twl1l4f747Qt5K', NULL, '{\"address\":\"\",\"state\":\"\",\"zip\":\"\",\"country\":\"Afghanistan\",\"city\":\"\"}', 1, 1, 1, 0, 1, '', '0000-00-00 00:00:00', 0, 1, '', NULL, '2021-04-04 00:30:45', '2021-04-04 00:30:45'),
+(3, 'Harlan', 'Brynn', 'Whitney', 'woduxedu@mailinator.com', '1242+34 5291385645', '0.00000000', '$2y$10$gxj39CAvdzshB5gXLlqnbekq2B02vorFeziOeCXfacxEi5jaLoMqq', NULL, '{\"address\":\"\",\"state\":\"\",\"zip\":\"\",\"country\":\"Bahamas\",\"city\":\"\"}', 2, NULL, 1, 0, 1, '', '0000-00-00 00:00:00', 0, 1, '', NULL, '2021-04-04 01:04:27', '2021-04-04 01:04:27');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `creator_logins`
+--
+
+CREATE TABLE `creator_logins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_ip` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `location` varchar(91) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `browser` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `os` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `longitude` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `latitude` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country_code` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `creator_logins`
+--
+
+INSERT INTO `creator_logins` (`id`, `user_id`, `user_ip`, `location`, `browser`, `os`, `longitude`, `latitude`, `country`, `country_code`, `created_at`, `updated_at`) VALUES
+(1, 1, '::1', ' - -  -  ', 'Chrome', 'Linux', '', '', '', '', '2021-04-04 00:21:07', '2021-04-04 00:21:07'),
+(2, 2, '::1', ' - -  -  ', 'Chrome', 'Linux', '', '', '', '', '2021-04-04 00:30:45', '2021-04-04 00:30:45'),
+(3, 3, '::1', ' - -  -  ', 'Chrome', 'Linux', '', '', '', '', '2021-04-04 01:04:27', '2021-04-04 01:04:27');
 
 -- --------------------------------------------------------
 
@@ -307,6 +458,20 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `followers`
+--
+
+CREATE TABLE `followers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `content_creator` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `frontends`
 --
 
@@ -482,7 +647,7 @@ CREATE TABLE `general_settings` (
 --
 
 INSERT INTO `general_settings` (`id`, `sitename`, `cur_text`, `cur_sym`, `email_from`, `email_template`, `sms_api`, `base_color`, `secondary_color`, `mail_config`, `ev`, `en`, `sv`, `sn`, `force_ssl`, `secure_password`, `registration`, `social_login`, `social_credential`, `active_template`, `sys_version`, `created_at`, `updated_at`) VALUES
-(1, 'Laramin', 'USD', '$', 'test123@xcapital.trade', '<table style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(0, 23, 54); text-decoration-style: initial; text-decoration-color: initial;\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#001736\"><tbody><tr><td valign=\"top\" align=\"center\"><table class=\"mobile-shell\" width=\"650\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"td container\" style=\"width: 650px; min-width: 650px; font-size: 0pt; line-height: 0pt; margin: 0px; font-weight: normal; padding: 55px 0px;\"><div style=\"text-align: center;\"><img src=\"https://i.imgur.com/C9IS7Z1.png\" style=\"height: 240 !important;width: 338px;margin-bottom: 20px;\"></div><table style=\"width: 650px; margin: 0px auto;\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td style=\"padding-bottom: 10px;\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"tbrr p30-15\" style=\"padding: 60px 30px; border-radius: 26px 26px 0px 0px;\" bgcolor=\"#000036\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td style=\"color: rgb(255, 255, 255); font-family: Muli, Arial, sans-serif; font-size: 20px; line-height: 46px; padding-bottom: 25px; font-weight: bold;\">Hi {{name}} ,</td></tr><tr><td style=\"color: rgb(193, 205, 220); font-family: Muli, Arial, sans-serif; font-size: 20px; line-height: 30px; padding-bottom: 25px;\">{{message}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table style=\"width: 650px; margin: 0px auto;\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"p30-15 bbrr\" style=\"padding: 50px 30px; border-radius: 0px 0px 26px 26px;\" bgcolor=\"#000036\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"text-footer1 pb10\" style=\"color: rgb(0, 153, 255); font-family: Muli, Arial, sans-serif; font-size: 18px; line-height: 30px; text-align: center; padding-bottom: 10px;\">© 2020 ViserLab. All Rights Reserved.</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>', 'https://api.infobip.com/api/v3/sendsms/plain?user=viserlab&password=26289099&sender=ViserLab&SMSText={{message}}&GSM={{number}}&type=longSMS', 'cc2e94', '1c1c9d', '{\"name\":\"php\"}', 1, 1, 0, 1, 0, 1, 1, 0, '{\"google_client_id\":\"53929591142-l40gafo7efd9onfe6tj545sf9g7tv15t.apps.googleusercontent.com\",\"google_client_secret\":\"BRdB3np2IgYLiy4-bwMcmOwN\",\"fb_client_id\":\"277229062999748\",\"fb_client_secret\":\"1acfc850f73d1955d14b282938585122\"}', 'basic', NULL, NULL, '2021-03-16 07:33:16');
+(1, 'onlyfans', 'USD', '$', 'test123@xcapital.trade', '<table style=\"color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(0, 23, 54); text-decoration-style: initial; text-decoration-color: initial;\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" bgcolor=\"#001736\"><tbody><tr><td valign=\"top\" align=\"center\"><table class=\"mobile-shell\" width=\"650\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"td container\" style=\"width: 650px; min-width: 650px; font-size: 0pt; line-height: 0pt; margin: 0px; font-weight: normal; padding: 55px 0px;\"><div style=\"text-align: center;\"><img src=\"https://i.imgur.com/C9IS7Z1.png\" style=\"height: 240 !important;width: 338px;margin-bottom: 20px;\"></div><table style=\"width: 650px; margin: 0px auto;\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td style=\"padding-bottom: 10px;\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"tbrr p30-15\" style=\"padding: 60px 30px; border-radius: 26px 26px 0px 0px;\" bgcolor=\"#000036\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td style=\"color: rgb(255, 255, 255); font-family: Muli, Arial, sans-serif; font-size: 20px; line-height: 46px; padding-bottom: 25px; font-weight: bold;\">Hi {{name}} ,</td></tr><tr><td style=\"color: rgb(193, 205, 220); font-family: Muli, Arial, sans-serif; font-size: 20px; line-height: 30px; padding-bottom: 25px;\">{{message}}</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table style=\"width: 650px; margin: 0px auto;\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"p30-15 bbrr\" style=\"padding: 50px 30px; border-radius: 0px 0px 26px 26px;\" bgcolor=\"#000036\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr><td class=\"text-footer1 pb10\" style=\"color: rgb(0, 153, 255); font-family: Muli, Arial, sans-serif; font-size: 18px; line-height: 30px; text-align: center; padding-bottom: 10px;\">© 2020 ViserLab. All Rights Reserved.</td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table>', 'https://api.infobip.com/api/v3/sendsms/plain?user=viserlab&password=26289099&sender=ViserLab&SMSText={{message}}&GSM={{number}}&type=longSMS', 'cc2e94', '1c1c9d', '{\"name\":\"php\"}', 1, 1, 0, 1, 0, 0, 1, 0, '{\"google_client_id\":\"53929591142-l40gafo7efd9onfe6tj545sf9g7tv15t.apps.googleusercontent.com\",\"google_client_secret\":\"BRdB3np2IgYLiy4-bwMcmOwN\",\"fb_client_id\":\"277229062999748\",\"fb_client_secret\":\"1acfc850f73d1955d14b282938585122\"}', 'basic', NULL, NULL, '2021-04-04 04:50:33');
 
 -- --------------------------------------------------------
 
@@ -539,7 +704,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (13, '2020_06_14_060541_create_user_logins_table', 6),
 (14, '2020_06_14_071708_create_admin_password_resets_table', 7),
 (15, '2020_09_14_053026_create_countries_table', 8),
-(16, '2021_03_15_084721_create_admin_notifications_table', 9);
+(16, '2021_03_15_084721_create_admin_notifications_table', 9),
+(17, '2021_04_03_065635_create_content_creators_table', 10),
+(18, '2021_04_03_070231_create_plans_table', 10),
+(19, '2021_04_03_070232_create_posts_table', 10),
+(20, '2021_04_03_071902_create_reactions_table', 10),
+(21, '2021_04_03_072009_create_comments_table', 10),
+(22, '2021_04_03_072116_create_comment_reactions_table', 10),
+(23, '2021_04_03_072255_create_followers_table', 10),
+(24, '2021_04_03_072357_create_subscriptions_table', 10),
+(25, '2021_04_04_071101_create_collectives_table', 11);
 
 -- --------------------------------------------------------
 
@@ -592,6 +766,57 @@ INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `plans`
+--
+
+CREATE TABLE `plans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_creator` bigint(20) UNSIGNED NOT NULL,
+  `price` decimal(28,8) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `content_creator_id` bigint(20) UNSIGNED NOT NULL,
+  `plan_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `privacy` int(11) NOT NULL COMMENT '0:for all, 1:followers, 2:subscribers, 3:premimum',
+  `price` decimal(28,8) DEFAULT NULL,
+  `approval_status` tinyint(1) NOT NULL,
+  `pinned` tinyint(1) NOT NULL,
+  `comment_status` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reactions`
+--
+
+CREATE TABLE `reactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subscribers`
 --
 
@@ -609,6 +834,22 @@ CREATE TABLE `subscribers` (
 INSERT INTO `subscribers` (`id`, `email`, `created_at`, `updated_at`) VALUES
 (2, 'test@mail.com', '2020-07-18 18:00:00', NULL),
 (3, 'best@mail.com', '2020-07-18 18:00:00', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscriptions`
+--
+
+CREATE TABLE `subscriptions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `post_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `content_creator_id` bigint(20) UNSIGNED NOT NULL,
+  `plan_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1010,6 +1251,39 @@ ALTER TABLE `admin_password_resets`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `collectives`
+--
+ALTER TABLE `collectives`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comment_reactions`
+--
+ALTER TABLE `comment_reactions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `content_creators`
+--
+ALTER TABLE `content_creators`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `content_creators_username_unique` (`username`),
+  ADD UNIQUE KEY `content_creators_email_unique` (`email`),
+  ADD UNIQUE KEY `content_creators_mobile_unique` (`mobile`);
+
+--
+-- Indexes for table `creator_logins`
+--
+ALTER TABLE `creator_logins`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `deposits`
 --
 ALTER TABLE `deposits`
@@ -1031,6 +1305,12 @@ ALTER TABLE `extensions`
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `followers`
+--
+ALTER TABLE `followers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1076,9 +1356,34 @@ ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `plans`
+--
+ALTER TABLE `plans`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `plans_name_unique` (`name`);
+
+--
+-- Indexes for table `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reactions`
+--
+ALTER TABLE `reactions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subscribers`
 --
 ALTER TABLE `subscribers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subscriptions`
+--
+ALTER TABLE `subscriptions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1144,13 +1449,43 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `admin_notifications`
 --
 ALTER TABLE `admin_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `admin_password_resets`
 --
 ALTER TABLE `admin_password_resets`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `collectives`
+--
+ALTER TABLE `collectives`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comment_reactions`
+--
+ALTER TABLE `comment_reactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `content_creators`
+--
+ALTER TABLE `content_creators`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `creator_logins`
+--
+ALTER TABLE `creator_logins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `deposits`
@@ -1174,6 +1509,12 @@ ALTER TABLE `extensions`
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `followers`
+--
+ALTER TABLE `followers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -1210,7 +1551,7 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1219,10 +1560,34 @@ ALTER TABLE `pages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `plans`
+--
+ALTER TABLE `plans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `reactions`
+--
+ALTER TABLE `reactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `subscribers`
 --
 ALTER TABLE `subscribers`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `subscriptions`
+--
+ALTER TABLE `subscriptions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `support_attachments`
