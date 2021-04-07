@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.'layouts.creator')
 
 @section('content')
 
@@ -11,10 +11,7 @@
                         <form action="{{ route('creator.content.post') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group ">
-                                {{-- <div data-emojiarea data-type="image" data-global-picker="false">
-                                    <i class="emoji emoji-smile emoji-button">&#x1f604;</i>
-                                    <textarea>&#x1f604;</textarea>
-                                </div> --}}
+                               
                                 <textarea name="message" id="" cols="30" rows="5" class="form-control"></textarea>
                                 <div class="message-sec form-group">
 
@@ -196,6 +193,8 @@
                     <input type="text" name="price" id="" class="form-control mt-2" placeholder="@lang('price')">
                 
                 `);
+            }else{
+                $('.message-sec').html('');
             }         
         })
  </script>

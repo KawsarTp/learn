@@ -1,7 +1,10 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.$active_landing)
 
 
 @section('content')
+
+   
+
     <div class="container">
         <div class="row">
             @foreach($gatewayCurrency as $data)
@@ -38,7 +41,7 @@
                         <span aria-hidden="true">&times;</span>
                     </a>
                 </div>
-                <form action="{{route('user.deposit.insert')}}" method="post">
+                <form action="{{route('deposit.insert')}}" method="post">
                     @csrf
                     <div class="modal-body">
                         <p class="text-danger depositLimit"></p>
@@ -65,6 +68,7 @@
             </div>
         </div>
     </div>
+
 @stop
 
 
@@ -92,6 +96,7 @@
 
                 $('.edit-currency').val(result.currency);
                 $('.edit-method-code').val(result.method_code);
+                
             });
         });
     </script>

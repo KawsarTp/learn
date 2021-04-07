@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate.$active_landing)
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -9,14 +9,7 @@
                     <div class="card-body">
                         <form action="{{ route('user.register') }}" method="POST" onsubmit="return submitUserForm();">
                             @csrf
-                            @if(session()->get('reference') != null)
-                                <div class="form-group row">
-                                    <label for="firstname" class="col-md-4 col-form-label text-md-right">@lang('Reference By')</label>
-                                    <div class="col-md-6">
-                                        <input type="text" name="referBy" id="referenceBy" class="form-control" value="{{session()->get('reference')}}" readonly>
-                                    </div>
-                                </div>
-                            @endif
+
 
                             <div class="form-group row">
                                 <label for="firstname" class="col-md-4 col-form-label text-md-right">@lang('First Name')</label>
@@ -38,6 +31,29 @@
                                 <div class="col-md-6">
                                     <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required>
                                 </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Register As') }}</label>
+                                <div class="col-md-6">
+                                    <select name="reg_user_type" class="form-control">
+                                        <option value="1">User</option>
+                                        <option value="2">Content Creator</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row user_type d-none">
+                                <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Content Creator Type') }}</label>
+                                <div class="col-md-6">
+                                    <select name="user_type" class="form-control">
+                                        <option value="">select Creator Type</option>
+                                        <option value="1">Content Creator</option>
+                                        <option value="2">Fund Raiser</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row content-creator-type">
+                               
                             </div>
 
                             <div class="row">
@@ -213,6 +229,40 @@
                 $('.progress-bar').text(msg);
             });
         @endif
+
+
+        $('select[name=user_type]').on('change',function(){
+            if($(this).val() == 1){
+            $('.content-creator-type').html(`
+            
+                 <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Content Creator Type') }}</label>
+                                <div class="col-md-6">
+                                    <select name="payment_type" class="form-control">
+                                        <option value="1">Payment Per Post</option>
+                                        <option value="2">Subscription</option>
+                                    </select>
+                                </div>
+            
+            `);
+            }else{
+                $('.content-creator-type').html(``);
+            }
+        })
+
+        var userRegister = "{{route('user.register')}}";
+        var creatorRegister = "{{route('creator.register')}}";
+
+        $('select[name=reg_user_type]').on('change',function(){
+           
+            if($(this).val() == 1){
+                $('.user_type').addClass('d-none');
+                $('form').attr('action',userRegister);
+
+            } else if($(this).val() == 2){
+                $('.user_type').removeClass('d-none');
+                $('form').attr('action',creatorRegister);
+            }
+        })
 
     </script>
 @endpush

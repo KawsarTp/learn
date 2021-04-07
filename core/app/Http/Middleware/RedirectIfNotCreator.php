@@ -12,7 +12,7 @@ class RedirectIfNotCreator
     {
 
         if (!auth()->guard($guard)->check()) {
-            return redirect()->route('creator.login');
+            return redirect()->route('user.login');
         }
         return $next($request);
     }

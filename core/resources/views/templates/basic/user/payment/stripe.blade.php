@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.$active_landing)
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

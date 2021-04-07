@@ -13,7 +13,7 @@ class ContentCreatorController extends Controller
         $page_title = 'Dashboard';
         $posts = auth()->guard('creator')->user()->posts;
         if(auth()->guard('creator')->user()->user_type == 2){
-            $collectives = Collective::latest()->with('creator')->get();
+            $collectives = Collective::latest()->where('content_creator_id',auth()->guard('creator')->id())->with('creator','collective_sponsors')->get();
             return view(activeTemplate() . 'creator.funddashboard', compact('page_title','collectives'));
         }
         return view(activeTemplate().'creator.dashboard',compact('page_title','posts')); 

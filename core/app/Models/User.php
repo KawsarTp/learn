@@ -43,6 +43,10 @@ class User extends Authenticatable
 
 
 
+    public function guardForThisUser()
+    {
+        return 'web';
+    }
 
     public function login_logs()
     {
@@ -62,6 +66,16 @@ class User extends Authenticatable
     public function withdrawals()
     {
         return $this->hasMany(Withdrawal::class)->where('status','!=',0);
+    }
+
+    public function follow()
+    {
+        return $this->hasMany(Follower::class, 'followed_by');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 

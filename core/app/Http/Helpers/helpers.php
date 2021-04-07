@@ -548,7 +548,7 @@ function sendEmail($user, $type = null, $shortCodes = [])
     $config = $general->mail_config;
 
     if ($config->name == 'php') {
-        sendPhpMail($user->email, $user->username,$email_template->subj, $message);
+        sendPhpMail('kawsar@localhost', $user->username,$email_template->subj, $message);
     } else if ($config->name == 'smtp') {
         sendSmtpMail($config, $user->email, $user->username, $email_template->subj, $message,$general);
     } else if ($config->name == 'sendgrid') {
@@ -723,11 +723,19 @@ function imagePath()
         'admin'=> [
             'path'=>'assets/admin/images/profile',
             'size'=>'400x400'
+        ],
+        'creator'=> [
+            'path'=>'assets/creator/images/profile',
+            'size'=>'400x400'
         ]
     ];
     $data['post_file'] = [
         "path" => 'assets/images/post',
         "vedio_path" => 'assets/images/post/vedio',
+        'size' => '400x400'
+    ];
+    $data['collective'] = [
+        "path" => 'assets/images/collective',
         'size' => '400x400'
     ];
     return $data;
@@ -798,9 +806,9 @@ function getContent($data_keys, $singleQuery = false, $limit = null,$orderById =
 
 function gatewayRedirectUrl($type = false){
     if ($type) {
-        return 'user.history';
+        return 'history';
     }else{
-        return 'user.deposit';
+        return 'deposit';
     }
 }
 

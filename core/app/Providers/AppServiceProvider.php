@@ -40,6 +40,8 @@ class AppServiceProvider extends ServiceProvider
         $viewShare['activeTemplateTrue'] = activeTemplate(true);
         $viewShare['language'] = Language::all();
         $viewShare['pages'] = Page::where('tempname',$activeTemplate)->where('slug','!=','home')->get();
+        $viewShare['active_landing'] = $general->active_landing == 1  ? 'layouts.social' : 'layouts.frontend';
+
         view()->share($viewShare);
         
 

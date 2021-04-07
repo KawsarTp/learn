@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Both;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -73,5 +74,6 @@ class Kernel extends HttpKernel
         'regStatus' => \App\Http\Middleware\AllowRegistration::class,
         'checkStatus' => \App\Http\Middleware\CheckStatus::class,
         'demo' => \App\Http\Middleware\Demo::class,
+        'both' => \App\Http\Middleware\Both::class
     ];
 }

@@ -54,7 +54,10 @@
 
                             <div class="form-group col-md-4">
                                 <label class="form-control-label font-weight-bold">@lang('Choose Landing Page')</label>
-                                <input type="checkbox" data-width="100%" data-size="large" data-onstyle="-success" data-offstyle="-danger" data-toggle="toggle" data-on="@lang('Enable')" data-off="@lang('Disabled')" name="secure_password" @if($general->secure_password) checked @endif>
+                                <select class="form-control" name="active_landing">
+                                    <option value="1" {{$general->active_landing == 1 ? 'selected':''}}>@lang('Social landing')</option>
+                                    <option value="2" {{$general->active_landing == 2 ? 'selected':''}}>@lang('Event Landing')</option>
+                                </select>
                             </div>
 
                         </div>

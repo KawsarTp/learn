@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Gateway;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminNotification;
+use App\Models\ContentCreator;
 use App\Models\Deposit;
 use App\Models\GatewayCurrency;
 use App\Models\GeneralSetting;
@@ -39,7 +40,15 @@ class PaymentController extends Controller
         ]);
 
 
-        $user = auth()->user();
+        if(auth()->check()){
+            $user = User::findOrFail(auth()->id());
+            $model = 'App\Models\User';
+        }
+        if(auth()->guard('creator')->check()){
+            $model = 'App\Models\ContentCreator';
+            $user = ContentCreator::findOrFail(auth()->guard('creator')->id());
+        }
+
         $gate = GatewayCurrency::where('method_code', $request->method_code)->where('currency', $request->currency)->first();
         if (!$gate) {
             $notify[] = ['error', 'Invalid Gateway'];
@@ -57,6 +66,7 @@ class PaymentController extends Controller
 
         $data = new Deposit();
         $data->user_id = $user->id;
+        $data->model = $model;
         $data->method_code = $gate->method_code;
         $data->method_currency = strtoupper($gate->currency);
         $data->amount = $request->amount;
@@ -70,7 +80,7 @@ class PaymentController extends Controller
         $data->status = 0;
         $data->save();
         session()->put('Track', $data['trx']);
-        return redirect()->route('user.deposit.preview');
+        return redirect()->route('deposit.preview');
     }
 
 
@@ -147,7 +157,9 @@ class PaymentController extends Controller
             $data->status = 1;
             $data->save();
 
-            $user = User::find($data->user_id);
+
+
+            $user = $data->model::find($data->user_id);
             $user->balance += $data->amount;
             $user->save();
             $gateway = $data->gateway;

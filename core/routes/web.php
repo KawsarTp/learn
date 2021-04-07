@@ -291,24 +291,55 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 */
 
 Route::name('creator.')->prefix('creator')->group(function () {
-Route::get('register','Creator\Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Creator\Auth\RegisterController@register');
 
-Route::get('/login', 'Creator\Auth\LoginController@showLoginForm')->name('login');
-Route::post('/login', 'Creator\Auth\LoginController@login');
+    Route::post('register', 'Creator\Auth\RegisterController@register')->name('register');
 
-Route::get('logout', 'Creator\Auth\LoginController@logout')->name('logout');
+    Route::post('/login', 'Creator\Auth\LoginController@login')->name('login');
+
+    Route::get('logout', 'Creator\Auth\LoginController@logout')->name('logout');
+    Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
 Route::middleware('creator')->group(function () {
+
         Route::get('dashboard', 'ContentCreatorController@index')->name('home');
         Route::post('content/post', 'ContentCreatorController@contentPost')->name('content.post');
 
         Route::get('collectives','CollectiveController@index')->name('collective');
         Route::post('collectives','CollectiveController@storeCollective');
         Route::get('collectives/edit/{id}/{slug}','CollectiveController@editCollective')->name('collective.details');
+
+        Route::get('collective/sponsor/{id}','CollectiveController@addSponsorPlan')->name('collective.sponsor');
+        Route::post('collective/sponsor/{id}','CollectiveController@storeSponsorPlan');
+
     });
 });
 
+
+Route::middleware('both')->group(function(){
+    Route::post('follow/{id}','FollowerController@follow')->name('follow');
+    Route::post('unfollow/{id}','FollowerController@unFollow')->name('unfollow');
+    Route::post('reaction/{id}', 'ReactionController@reaction')->name('reaction');
+    Route::post('reaction/unlike/{id}', 'ReactionController@unlike')->name('unlike');
+
+    Route::post('comment/{id}','CommentController@comment')->name('comment');
+
+    Route::post('comment/reaction/{post}/{comment}','CommentController@reaction')->name('comment_reaction');
+    Route::post('comment/{post}/unlink/{comment}','CommentController@reactionUnlink')->name('comment_reaction_remove');
+
+
+    Route::get('premium/{id}/unlock','PostController@unlock')->name('premium.unlock');
+
+
+
+    // Deposit
+    Route::any('/deposit', 'Gateway\PaymentController@deposit')->name('deposit');
+    Route::post('deposit/insert', 'Gateway\PaymentController@depositInsert')->name('deposit.insert');
+    Route::get('deposit/preview', 'Gateway\PaymentController@depositPreview')->name('deposit.preview');
+    Route::get('deposit/confirm', 'Gateway\PaymentController@depositConfirm')->name('deposit.confirm');
+    Route::get('deposit/manual', 'Gateway\PaymentController@manualDepositConfirm')->name('deposit.manual.confirm');
+    Route::post('deposit/manual', 'Gateway\PaymentController@manualDepositUpdate')->name('deposit.manual.update');
+    Route::get('deposit/history', 'UserController@depositHistory')->name('deposit.history');
+});
 
 
 
@@ -349,7 +380,6 @@ Route::name('user.')->prefix('user')->group(function () {
 
         Route::middleware(['checkStatus'])->group(function () {
             Route::get('dashboard', 'UserController@home')->name('home');
-
             Route::get('profile-setting', 'UserController@profile')->name('profile-setting');
             Route::post('profile-setting', 'UserController@submitProfile');
             Route::get('change-password', 'UserController@changePassword')->name('change-password');
@@ -361,14 +391,7 @@ Route::name('user.')->prefix('user')->group(function () {
             Route::post('twofactor/disable', 'UserController@disable2fa')->name('twofactor.disable');
 
 
-            // Deposit
-            Route::any('/deposit', 'Gateway\PaymentController@deposit')->name('deposit');
-            Route::post('deposit/insert', 'Gateway\PaymentController@depositInsert')->name('deposit.insert');
-            Route::get('deposit/preview', 'Gateway\PaymentController@depositPreview')->name('deposit.preview');
-            Route::get('deposit/confirm', 'Gateway\PaymentController@depositConfirm')->name('deposit.confirm');
-            Route::get('deposit/manual', 'Gateway\PaymentController@manualDepositConfirm')->name('deposit.manual.confirm');
-            Route::post('deposit/manual', 'Gateway\PaymentController@manualDepositUpdate')->name('deposit.manual.update');
-            Route::get('deposit/history', 'UserController@depositHistory')->name('deposit.history');
+            
 
             // Withdraw
             Route::get('/withdraw', 'UserController@withdrawMoney')->name('withdraw');

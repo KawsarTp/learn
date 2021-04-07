@@ -23,6 +23,7 @@ class UserController extends Controller
     }
     public function home()
     {
+        dd('ok');
         $page_title = 'Dashboard';
         $user = User::first();
         return view($this->activeTemplate . 'user.dashboard', compact('page_title'));
@@ -124,7 +125,13 @@ class UserController extends Controller
     {
         $page_title = 'Deposit History';
         $empty_message = 'No history found.';
-        $logs = auth()->user()->deposits()->with(['gateway'])->latest()->paginate(getPaginate());
+        if(auth()->check()){
+            $logs = auth()->user()->deposits()->with(['gateway'])->latest()->paginate(getPaginate());
+        }
+        if(auth()->guard('creator')->check()){
+            $logs = auth()->guard('creator')->user()->deposits()->with(['gateway'])->latest()->paginate(getPaginate());
+        }
+        
         return view($this->activeTemplate . 'user.deposit_history', compact('page_title', 'empty_message', 'logs'));
     }
 

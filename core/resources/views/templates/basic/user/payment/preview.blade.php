@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.master')
+@extends($activeTemplate.$active_landing)
 
 
 @section('content')
@@ -9,7 +9,7 @@
                     <div class="card-body card-body-deposit">
                         <ul class="list-group text-center">
                             <li class="list-group-item">
-                                <img src="{{ $data->gateway_currency()->methodImage() }}" alt="@lang('Image')" class="w-100" />
+                                <img src="{{ $data->gateway_currency()->methodImage() }}" alt="@lang('Image')" class="w-25" />
                             </li>
                             <p class="list-group-item">
                                 @lang('Amount'):
@@ -40,9 +40,9 @@
                         </ul>
 
                         @if( 1000 >$data->method_code)
-                            <a href="{{route('user.deposit.confirm')}}" class="btn btn-success btn-block py-3 font-weight-bold">@lang('Pay Now')</a>
+                            <a href="{{route('deposit.confirm')}}" class="btn btn-success btn-block py-3 font-weight-bold">@lang('Pay Now')</a>
                         @else
-                            <a href="{{route('user.deposit.manual.confirm')}}" class="btn btn-success btn-block py-3 font-weight-bold">@lang('Pay Now')</a>
+                            <a href="{{route('deposit.manual.confirm')}}" class="btn btn-success btn-block py-3 font-weight-bold">@lang('Pay Now')</a>
                         @endif
                     </div>
                 </div>

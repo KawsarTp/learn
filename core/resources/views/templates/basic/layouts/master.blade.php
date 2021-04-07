@@ -10,11 +10,7 @@
 
 
 
-<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="{{asset($activeTemplateTrue.'css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset($activeTemplateTrue.'/css/bootstrap-fileinput.css')}}">
    @stack('style-lib')
 
@@ -52,8 +48,8 @@
                 </select>
 
 
-
-            @guest('creator')
+            
+            @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}">@lang('contact')</a>
                     </li>
@@ -67,7 +63,7 @@
                     </li>
                 @endguest
 
-                @auth('creator')
+                @auth
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -86,8 +82,8 @@
                             @lang('Deposit') <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{route('user.deposit')}}">@lang('Deposit Money')</a>
-                            <a class="dropdown-item" href="{{route('user.deposit.history')}}">@lang('Deposit Log')</a>
+                            <a class="dropdown-item" href="{{route('deposit')}}">@lang('Deposit Money')</a>
+                            <a class="dropdown-item" href="{{route('deposit.history')}}">@lang('Deposit Log')</a>
                         </div>
                     </li>
 
@@ -108,7 +104,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::guard('creator')->user()->fullname }} <span class="caret"></span>
+                            {{ Auth::user()->fullname }} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('user.change-password') }}">
@@ -140,11 +136,11 @@
 
 
 
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{{asset($activeTemplateTrue.'js/jquery-3.5.1.min.js')}}"></script>
+<script src="{{asset($activeTemplateTrue.'js/bootstrap.bundle.min.js')}}"></script>
 
 <script src="{{asset($activeTemplateTrue.'/js/bootstrap-fileinput.js')}}"></script>
 

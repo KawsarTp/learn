@@ -13,4 +13,9 @@ class Collective extends Model
     {
        return $this->belongsTo(ContentCreator::class);
     }
+
+    public function collective_sponsors()
+    {
+        return $this->hasMany(CollectiveSponsor::class);
+    }
 }

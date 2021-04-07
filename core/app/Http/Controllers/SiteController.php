@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminNotification;
+use App\Models\Comment;
+use App\Models\CommentReaction;
+use App\Models\ContentCreator;
+use App\Models\Follower;
 use App\Models\Frontend;
+use App\Models\GeneralSetting;
 use App\Models\Language;
 use App\Models\Page;
+use App\Models\Post;
+use App\Models\Reaction;
 use App\Models\SupportAttachment;
 use App\Models\SupportMessage;
 use App\Models\SupportTicket;
@@ -15,28 +22,79 @@ use Illuminate\Http\Request;
 
 class SiteController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->activeTemplate = activeTemplate();
     }
 
-    public function index(){
-        $count = Page::where('tempname',$this->activeTemplate)->where('slug','home')->count();
-        if($count == 0){
-            $page = new Page();
-            $page->tempname = $this->activeTemplate;
-            $page->name = 'HOME';
-            $page->slug = 'home';
-            $page->save();
+    public function index()
+    {
+        $gnl = GeneralSetting::first();
+
+        if ($gnl->active_landing == 2) {
+
+            $count = Page::where('tempname', $this->activeTemplate)->where('slug', 'home')->count();
+            if ($count == 0) {
+                $page = new Page();
+                $page->tempname = $this->activeTemplate;
+                $page->name = 'HOME';
+                $page->slug = 'home';
+                $page->save();
+            }
+
+            $data['page_title'] = 'Home';
+            $data['sections'] = Page::where('tempname', $this->activeTemplate)->where('slug', 'home')->firstOrFail();
+            return view($this->activeTemplate . 'home', $data);
         }
+
+        $page_title = 'Home';
+        $top_creators = Post::where('approval_status',1)->groupBy('content_creator_id')->selectRaw('count(content_creator_id) as count,content_creator_id')->orderBy('count','DESC')->take(5)->get();
+        $comments = Comment::latest()->with('creator','user')->get();
+        // For User
         
-        $data['page_title'] = 'Home';
-        $data['sections'] = Page::where('tempname',$this->activeTemplate)->where('slug','home')->firstOrFail();
-        return view($this->activeTemplate . 'home', $data);
+        if(auth()->check()){
+            $user = auth()->user();
+             $followList = auth()->user()->follow->map(function($item){
+                return $item->content_creator_id;
+             });
+             $posts = Post::where('approval_status',1)->latest()->with('content_creator')->withCount('reaction','comments')->get();
+
+             $reaction = Reaction::where('reactor_id',auth()->id())->pluck('post_id')->toArray();
+
+             $commentRec = CommentReaction::where('user_id',auth()->user()->id)->pluck('comment_id')->toArray();
+
+            return view($this->activeTemplate . 'home', compact('page_title','posts','top_creators','followList','reaction','commentRec','user'));
+        }
+
+
+        // For Content Creator
+
+        if(auth()->guard('creator')->check()){
+            $user = auth()->guard('creator')->user();
+            $followList = auth()->guard('creator')->user()->follow->map(function($item){
+                return $item->content_creator_id;
+             });
+             $posts = Post::where('approval_status',1)->latest()->with('content_creator')->withCount('reaction','comments')->get();
+             
+             $reaction = Reaction::where('reactor_id',auth()->guard('creator')->id())->pluck('post_id')->toArray();
+
+             $commentRec = CommentReaction::where('user_id',auth()->guard('creator')->user()->id)->pluck('comment_id')->toArray();
+
+            return view($this->activeTemplate . 'home', compact('page_title','posts','top_creators','followList','reaction','commentRec','user'));
+        }
+
+
+        // for All
+
+        $posts = Post::where('approval_status',1)->where('privacy','!=',1)->latest()->with('content_creator')->withCount('reaction','comments')->get();
+        return view($this->activeTemplate . 'home', compact('page_title','posts','top_creators'));
+
+
     }
 
     public function pages($slug)
     {
-        $page = Page::where('tempname',$this->activeTemplate)->where('slug',$slug)->firstOrFail();
+        $page = Page::where('tempname', $this->activeTemplate)->where('slug', $slug)->firstOrFail();
         $data['page_title'] = $page->name;
         $data['sections'] = $page;
         return view($this->activeTemplate . 'pages', $data);
@@ -100,7 +158,7 @@ class SiteController extends Controller
         $adminNotification = new AdminNotification();
         $adminNotification->user_id = auth()->id() ? auth()->id() : 0;
         $adminNotification->title = 'New support ticket has opened';
-        $adminNotification->click_url = route('admin.ticket.view',$ticket->id);
+        $adminNotification->click_url = route('admin.ticket.view', $ticket->id);
         $adminNotification->save();
 
         $message->supportticket_id = $ticket->id;
@@ -116,12 +174,10 @@ class SiteController extends Controller
                     $attachment->support_message_id = $message->id;
                     $attachment->image = uploadImage($image, $path);
                     $attachment->save();
-                    
                 } catch (\Exception $exp) {
                     $notify[] = ['error', 'Could not upload your ' . $image];
                     return back()->withNotify($notify)->withInput();
                 }
-
             }
         }
         $notify[] = ['success', 'ticket created successfully!'];
@@ -137,19 +193,21 @@ class SiteController extends Controller
         return redirect()->back();
     }
 
-    public function blogDetails($id,$slug){
-        $blog = Frontend::where('id',$id)->where('data_keys','blog.element')->firstOrFail();
+    public function blogDetails($id, $slug)
+    {
+        $blog = Frontend::where('id', $id)->where('data_keys', 'blog.element')->firstOrFail();
         $page_title = $blog->data_values->title;
-        return view($this->activeTemplate.'blogDetails',compact('blog','page_title'));
+        return view($this->activeTemplate . 'blogDetails', compact('blog', 'page_title'));
     }
 
-    public function placeholderImage($size = null){
+    public function placeholderImage($size = null)
+    {
         if ($size != 'undefined') {
             $size = $size;
-            $imgWidth = explode('x',$size)[0];
-            $imgHeight = explode('x',$size)[1];
+            $imgWidth = explode('x', $size)[0];
+            $imgHeight = explode('x', $size)[1];
             $text = $imgWidth . '×' . $imgHeight;
-        }else{
+        } else {
             $imgWidth = 150;
             $imgHeight = 150;
             $text = 'Undefined Size';
@@ -159,7 +217,7 @@ class SiteController extends Controller
         if ($fontSize <= 9) {
             $fontSize = 9;
         }
-        if($imgHeight < 100 && $fontSize > 30){
+        if ($imgHeight < 100 && $fontSize > 30) {
             $fontSize = 30;
         }
 
@@ -177,5 +235,4 @@ class SiteController extends Controller
         imagejpeg($image);
         imagedestroy($image);
     }
-
 }

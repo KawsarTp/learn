@@ -14,9 +14,9 @@ class CreateReactionsTable extends Migration
     public function up()
     {
         Schema::create('reactions', function (Blueprint $table) {
-            $table->id();
+            $table->primary(['post_id','reactor_id']);
             $table->unsignedBigInteger('post_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('reactor_id');
             $table->timestamps();
         });
     }

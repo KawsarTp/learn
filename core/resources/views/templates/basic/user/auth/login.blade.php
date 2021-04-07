@@ -1,4 +1,4 @@
-@extends($activeTemplate.'layouts.frontend')
+@extends($activeTemplate.$active_landing)
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
                     <div class="card-header">@lang('Login')</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('user.login')}}"
+                        <form method="POST" action="{{route('user.login')}}"
                               onsubmit="return submitUserForm();">
                             @csrf
 
@@ -16,6 +16,17 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">@lang('Username & Email')</label>
                                 <div class="col-md-6">
                                     <input type="text" name="username" value="{{ old('username') }}" placeholder="@lang('Username & Email')" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Login As') }}</label>
+    
+                                <div class="col-md-6">
+                                    <select name="" id="" class="form-control user-type">
+                                        <option value="1">User</option>
+                                        <option value="2">Content Creator</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -55,11 +66,11 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <a class="btn btn-link" href="{{route('user.register')}}">
+                                    <a class="btn btn-link register" href="{{route('user.register')}}">
                                         @lang('Create an account')
                                     </a>
 
-                                    <a class="btn btn-link float-right" href="{{route('user.password.request')}}">
+                                    <a class="btn btn-link float-right forgot" href="{{route('user.password.request')}}">
                                         @lang('Forgot Your Password?')
                                     </a>
                                 </div>
@@ -86,5 +97,26 @@
         function verifyCaptcha() {
             document.getElementById('g-recaptcha-error').innerHTML = '';
         }
+
+        var urlCreator = "{{route('creator.login')}}"; 
+        var urlLogin = "{{route('user.login')}}";
+        var forgotUser = "{{route('user.password.request')}}"; 
+        var forgotCreator = "{{route('creator.password.request')}}"; 
+        var registerCreator = "{{route('creator.register')}}"; 
+        var registerUser = "{{route('user.register')}}"; 
+
+        $(function(){
+            $('.user-type').on('change',function(){
+                if($(this).val() == 1){
+                    $('.forgot').attr('href',forgotUser);
+                    $('.register').attr('href',registerUser);
+                    $('form').attr('action',urlLogin);
+                }else if($(this).val() == 2){
+                    $('.forgot').attr('href',forgotCreator);
+                    $('.register').attr('href',registerCreator);
+                    $('form').attr('action',urlCreator);
+                }
+            })
+        })
     </script>
 @endpush
